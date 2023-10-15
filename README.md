@@ -12,7 +12,7 @@ The company markets its courses on several websites and search engines like Goog
 Now, although X Education gets a lot of leads, its lead conversion rate is very poor. For example, if, say, they acquire 100 leads in a day, only about 30 of them are converted. To make this process more efficient, the company wishes to identify the most potential leads, also known as ‘Hot Leads’. If they successfully identify this set of leads, the lead conversion rate should go up as the sales team will now be focusing more on communicating with the potential leads rather than making calls to everyone. A typical lead conversion process can be represented using the following funnel:
 </div>
 
-![XNote_201901081613670.jpg](attachment:XNote_201901081613670.jpg)
+![alt text](https://github.com/kunam01/lead_scoring/blob/main/XNote_201901081613670.jpg)
 
 <div style="text-align: justify">
 As you can see, there are a lot of leads generated in the initial stage (top) but only a few of them come out as paying customers from the bottom. In the middle stage, you need to nurture the potential leads well (i.e. educating the leads about the product, constantly communicating etc. ) in order to get a higher lead conversion.
@@ -34,3 +34,36 @@ There are quite a few goals for this case study:
 
 - Build a logistic regression model to assign a lead score between 0 and 100 to each of the leads which can be used by the company to target potential leads. A higher score would mean that the lead is hot, i.e. is most likely to convert whereas a lower score would mean that the lead is cold and will mostly not get converted.
 - There are some more problems presented by the company which your model should be able to adjust to if the company's requirement changes in the future so you will need to handle these as well. These problems are provided in a separate doc file. Please fill it based on the logistic regression model you got in the first step. Also, make sure you include this in your final PPT where you'll make recommendations.
+
+# Steps in solution to case study
+###	Exploratory Data Analysis (EDA):
+- Data Cleaning – Missing Value Handling:
+- Data Cleaning – Understanding and Manipulation:
+- Univariant analysis:
+- Multivariant Analysis:
+###	Data Preparation:
+- Replacing categorical variables with dummy variables and dropping selective one column.
+- Making column 'Lead Number' as index and dropping as column.
+- Splitting the Data into Training and Testing Sets in 70-30 ratio.
+- Rescaling the Numerical Features using Standard Scalar.
+- Finding correlation/Heatmap between all variables, and dropping variables with high correlation > 70%.
+###	Building Model:
+- Final dataset after cleaning and preparation consists of 19 variables.
+- In first logistic regression model using statsmodels, it is found that there exist variables with high p-value.
+- With multiple experiments using automatic feature selection (RFE), adequate 11 features have been selected, where all variables have p-value < 0.05 and VIF in range.
+- ROC plot show ROC curve area is 0.95, which is pretty good.
+###	Model Evaluation:
+![alt text](https://github.com/kunam01/lead_scoring/blob/main/Model_Evaluation.png)
+
+##	Factor affecting the Conversion Probability:
+- Tags_Conversion_Chances_HIGH_CONVERSION_CHANCES
+- Last_Notable_Activity_SMS_Sent
+- Lead_Source_Direct_Traffic
+- Lead_Source_Organic_Search
+- Lead_Origin_Lead_Import
+- Lead_Source_Google
+- Lead_Source_Reference
+- Lead_Source_Olark_Chat
+- Total_Time_Spent_on_Website
+- Last_Notable_Activity_Email_Opened
+- Lead_Origin_Landing_Page_Submission
